@@ -148,11 +148,13 @@ var Game = function(canvas_object,grid_size)
   function Start_Game(start_difficulty)
   {
     difficulty = growth_per_bite = start_difficulty;
+    console.log(difficulty,growth_per_bite,start_difficulty);
     Reset_Game();
   }
   
   function Reset_Game()
   {
+    speed = 200;
     Buttons('play');
     Configure_Input();
     game_over = false;
@@ -163,8 +165,8 @@ var Game = function(canvas_object,grid_size)
     amount_to_grow = growth_per_bite;
     Update_Score();
     Generate_Food();
-    clearInterval(interval);
     interval = setInterval(Game_Loop,Speed());
+    console.log(speed);
   }
   
   function Stop_Game()
