@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<script type='text/javascript' src='./js/html5shiv.js'></script>
+<link rel='stylesheet' href='./css/reset.css' />
+<link rel='stylesheet' href='./css/style.css' />
+</head>
+<body>
+  <section id='screen'></section>
+  <div id='overlay'>
+    <h2>Level: <span id='level-box'></span><span class='right'>P = Pause</span></h2>
+    <h3>Score: <span id='score-box'></span></h3>
+    <h1 id='status-text'>SNAKE</h1>
+    <menu>
+      <div id='difficulty-buttons'>
+        <button type='button' class='difficulty' id='easy-button'>EASY</button>
+        <button type='button' class='difficulty' id='normal-button'>NORMAL</button>
+        <button type='button' class='difficulty' id='hard-button'>HARD</button>
+      </div>
+    </menu>
+  </div>
+</body>
+<script type='text/javascript' src='./js/keyboard.min.js'></script>
+<script type='text/javascript' src='./js/game.js'></script>
+<script type='text/javascript'>
+  Init();
+</script>
+</html>
