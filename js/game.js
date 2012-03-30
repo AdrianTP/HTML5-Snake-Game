@@ -61,7 +61,8 @@ var Game = function(canvas_object,grid_size)
     },
     growth_per_bite = 1,
     difficulty = 1,
-    speed = 200,
+    speed,
+    speed_initial = 200,
     body = [],
     heading,
     amount_to_grow,
@@ -101,8 +102,8 @@ var Game = function(canvas_object,grid_size)
         normal_button = getEl('normal-button');
         hard_button = getEl('hard-button');
         easy_button.onclick = function(){Start_Game(1);};
-        normal_button.onclick = function(){Start_Game(3);};
-        hard_button.onclick = function(){Start_Game(5);};
+        normal_button.onclick = function(){Start_Game(5);};
+        hard_button.onclick = function(){Start_Game(10);};
         break;
       case 'play':
         status_text.style.display = 'none';
@@ -126,7 +127,7 @@ var Game = function(canvas_object,grid_size)
   
   function Speed()
   {
-    speed -= 10 * difficulty;
+    speed = speed_initial - (10 * difficulty);
     return speed;
   }
   
@@ -148,13 +149,12 @@ var Game = function(canvas_object,grid_size)
   function Start_Game(start_difficulty)
   {
     difficulty = growth_per_bite = start_difficulty;
-    console.log(difficulty,growth_per_bite,start_difficulty);
     Reset_Game();
   }
   
   function Reset_Game()
   {
-    speed = 200;
+    speed = speed_initial;
     Buttons('play');
     Configure_Input();
     game_over = false;
@@ -166,7 +166,6 @@ var Game = function(canvas_object,grid_size)
     Update_Score();
     Generate_Food();
     interval = setInterval(Game_Loop,Speed());
-    console.log(speed);
   }
   
   function Stop_Game()
