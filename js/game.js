@@ -85,11 +85,6 @@ var Game = function(canvas_object,grid_size)
     return document.getElementById(el);
   }
   
-  function Difficulty()
-  {
-    
-  }
-  
   function Buttons(state)
   {
     switch(state)
